@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GitHub Profile Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>GitHub Profile Analyzer</h1>
+    <p class="subtitle">Enter a GitHub username to analyze profile & repositories</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <input id="usernameInput" type="text" placeholder="e.g. torvalds" />
+      <button id="analyzeBtn">Analyze</button>
+      <div id="msg" class="msg"></div>
+    </section>
+
+    <section id="profileSection" class="profile hidden">
+      <div class="profile-card">
+        <img id="avatar" alt="avatar" />
+        <div class="profile-info">
+          <h2 id="name"></h2>
+          <p id="bio" class="muted"></p>
+          <p class="meta">
+            <span id="location"></span>
+            &nbsp;•&nbsp;
+            <span id="followers"></span> followers
+            &nbsp;•&nbsp;
+            <span id="following"></span> following
+          </p>
+          <p class="meta">Public repos: <span id="public_repos"></span></p>
+          <a id="profileLink" target="_blank" rel="noopener">Open on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+   
+
+      <div class="charts hidden" id="charts">
+        <div class="chart-card">
+          <h4>Top 6 Repos by Stars</h4>
+          <canvas id="starsChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h4>Language Distribution</h4>
+          <canvas id="langChart"></canvas>
+        </div>
+      </div>
+    </section>
+     <section id="reposSection" class="repos hidden">
+      <h3>Repositories</h3>
+      <div id="reposTableWrapper" class="table-wrapper"></div>
+  </main>
+
+  <footer class="footer">
+    <small>Built with 💙 • Front-end only • Uses GitHub public API</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
